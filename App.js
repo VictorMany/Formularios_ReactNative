@@ -1,8 +1,9 @@
-import { LogBox, StyleSheet, SafeAreaView, StatusBar, View, Text } from "react-native";
+import { LogBox, StyleSheet, SafeAreaView, StatusBar, View, Text, DynamicColorIOS } from "react-native";
 import React, { useState, useEffect } from 'react';
 import Form from './src/components/Form';
 import Footer from './src/components/Footer';
-import colors from './src/utils/Colors';
+import ResultCalculation from './src/components/ResultCalculation';
+import colors from './src/utils/colors';
 
 
 LogBox.ignoreAllLogs();
@@ -39,10 +40,12 @@ export default function App() {
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.SafeAreaView}>
         <View style={styles.background} />
-        <Text style={styles.titleApp}>Prestamos</Text>
-        <Form />
+        <Text style={styles.titleApp}>Prestamos MiniRaza</Text>
+        <Form setCapital={setCantidad} setInterest={setInteres} setMonths={setMeses} />
       </SafeAreaView>
-      <Footer />
+      <ResultCalculation cantidad={cantidad} intereses={interes} meses={meses} total={total} errorMessage={errorMessage} />
+
+      <Footer calculate={calculate()} />
     </>
   )
 }
@@ -60,9 +63,9 @@ const styles = StyleSheet.create({
     zIndex: -1
   },
   titleApp: {
-    fontSize: 25,
+    fontSize: 30,
     fontWeight: 'bold',
-    color: '#000',
-    marginTop: 15
+    color: '#fff',
+    marginTop: 25
   }
 })
