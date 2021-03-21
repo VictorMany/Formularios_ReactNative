@@ -40,12 +40,12 @@ export default function App() {
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={styles.SafeAreaView}>
         <View style={styles.background} />
-        <Text style={styles.titleApp}>Prestamos MiniRaza</Text>
+        <Text style={styles.titleApp}>Préstamos MiniRaza</Text>
         <Form setCapital={setCantidad} setInterest={setInteres} setMonths={setMeses} />
       </SafeAreaView>
       <ResultCalculation cantidad={cantidad} intereses={interes} meses={meses} total={total} errorMessage={errorMessage} />
 
-      <Footer calculate={calculate()} />
+      <Footer calculate={calculate} />
     </>
   )
 }
